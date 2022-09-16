@@ -105,3 +105,14 @@ a = ['b', 'c'];
 ---
 (source_file
   (expression (identifier) (vector_definition (factor (string)) (factor (string)))))
+
+==============
+Declare string cell array
+==============
+
+a = {'b', 'c'};
+
+---
+(source_file
+  (expression (identifier) (cell_definition (factor (string)) (factor (string)))))
+
