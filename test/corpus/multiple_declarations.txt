@@ -13,3 +13,18 @@ c = a + 3 * b;
   (expression (identifier) (operation (factor (number)) (factor (identifier))))
   (expression (identifier) (operation (factor (identifier)) (factor (operation (factor (number)) (factor (identifier))))))
 )
+
+==========================
+Vector declarations Rotate
+==========================
+
+a = [1 2 3;1, 2, 3]';
+a = [1 2 3;1, 2, 3]';
+
+---
+
+(source_file
+  (expression (identifier) (vector_definition (factor) (factor) (factor) (factor) (factor) (factor) (factor)))
+  (expression (identifier) (vector_definition (factor) (factor) (factor) (factor) (factor) (factor) (factor)))
+)
+
