@@ -24,3 +24,15 @@ a = disp(322134);
     )
   )
 )
+
+=============
+Function call with namespace
+=============
+
+name.space.disp(32312);
+
+---
+
+(source_file
+  (function_call (identifier) (identifier) (identifier) (argument_list (factor (number))))
+)
