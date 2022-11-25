@@ -223,10 +223,19 @@ module.exports = grammar({
     struct: ($) =>
       prec.left(
         seq(
-          repeat1(seq($.identifier, '.')),
+          field('namespace', repeat1(seq(choice($.function_call, $.identifier), '.'))),
           choice($.function_call, $.identifier)
         )
       ),
+
+    range: ($) =>
+      seq(
+        $._range_element, ':', $._range_element,
+        optional(seq(':', $._range_element))
+      ),
+
+    _range_element: ($) =>
+    choice($.identifier, $.number, $.function_call),
 
     vector_access: ($) => prec.left(seq($.identifier, '(', $.factor, ')')),
 

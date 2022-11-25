@@ -136,3 +136,22 @@ a = b.c;
 (source_file
   (expression (identifier) (factor (struct (identifier) (identifier)))))
 
+==============
+Declare range
+==============
+
+a = 1:10;
+
+---
+(source_file
+  (expression (identifier) (factor (range (number) (number)))))
+
+======================
+Declare interval range
+======================
+
+a = 1:2:10;
+
+---
+(source_file
+  (expression (identifier) (factor (range (number) (number) (number)))))
