@@ -8,7 +8,6 @@
         "type": "SEQ",
         "members": [
           {
-<<<<<<< HEAD
             "type": "CHOICE",
             "members": [
               {
@@ -36,43 +35,6 @@
                 "name": "_statements"
               }
             ]
-=======
-            "type": "FIELD",
-            "name": "structure_keyword",
-            "content": {
-              "type": "SYMBOL",
-              "name": "structure_keyword"
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "condition",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "operation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "bool"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "expression"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_bool_keywords"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "function_call"
-                }
-              ]
-            }
->>>>>>> 787b130 (generate)
           },
           {
             "type": "CHOICE",
@@ -1012,7 +974,6 @@
         "type": "SEQ",
         "members": [
           {
-<<<<<<< HEAD
             "type": "CHOICE",
             "members": [
               {
@@ -1040,26 +1001,6 @@
                 "name": "range"
               }
             ]
-=======
-            "type": "SYMBOL",
-            "name": "number"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "string"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "identifier"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "operation"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "function_call"
->>>>>>> 787b130 (generate)
           }
         ]
       }
@@ -1182,7 +1123,6 @@
         }
       ]
     },
-<<<<<<< HEAD
     "keyword": {
       "type": "SEQ",
       "members": [
@@ -1217,8 +1157,6 @@
       "type": "STRING",
       "value": "continue"
     },
-=======
->>>>>>> 787b130 (generate)
     "_single_quote": {
       "type": "STRING",
       "value": "'"
