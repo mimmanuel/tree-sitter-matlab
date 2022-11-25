@@ -37,3 +37,15 @@ name.space.disp(32312);
   (struct (identifier) (identifier) (function_call (identifier) (argument_list (factor (number)))))
 )
 
+=============
+Function call line break
+=============
+
+a( ...
+1, ...
+2)
+
+---
+
+(source_file (function_call (identifier) (argument_list (factor (number)) (factor (number)))))
+

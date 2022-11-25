@@ -165,7 +165,7 @@ module.exports = grammar({
       prec.right(
         seq(
           '(',
-          repeat(seq($.factor, optional(','))),
+          repeat(seq($._factor_elipsis, optional(','))),
           ')',
         )
       ),
@@ -189,17 +189,19 @@ module.exports = grammar({
     identifier: ($) => /[a-zA-Z_]+[a-zA-Z0-9_]*/,
 
     factor: ($) =>
-      prec.right(
-        seq(
-          choice(
-            $.number,
-            $.string,
-            $.identifier,
-            $.operation,
-            $.function_call,
-            $.struct,
-            $.range), 
-        )),
+      prec.right(seq(
+        choice(
+        $.number,
+        $.string,
+        $.identifier,
+        $.operation,
+        $.function_call,
+        $.struct,
+        $.range
+      ))),
+
+    _factor_elipsis: ($) =>
+    seq(optional($._elipsis), $.factor),
 
     range: ($) =>
       seq(
@@ -237,7 +239,7 @@ module.exports = grammar({
     _range_element: ($) =>
     choice($.identifier, $.number, $.function_call),
 
-    vector_access: ($) => prec.left(seq($.identifier, '(', $.factor, ')')),
+    vector_access: ($) => prec.left(seq($.identifier, '(', $._factor_elipsis, ')')),
 
     string: ($) => seq($._single_quote, /([^']|(''))*/, $._single_quote),
 
@@ -254,9 +256,9 @@ module.exports = grammar({
     end: ($) => 'end',
     function_keyword: ($) => 'function',
     vector_definition: ($) =>
-      seq('[', repeat(seq($.factor, optional(choice(',', ';')))), ']', optional($._single_quote)),
+      seq('[', repeat(seq($._factor_elipsis, optional(choice(',', ';')))), ']', optional($._single_quote)),
     cell_definition: ($) =>
-      seq('{', repeat(seq($.factor, optional(choice(',', ';')))), '}'),
+      seq('{', repeat(seq($._factor_elipsis, optional(choice(',', ';')))), '}'),
     _and: ($) => '&&',
     _or: ($) => '||',
     _not: ($) => '~',
@@ -265,5 +267,6 @@ module.exports = grammar({
     _bool_keywords: ($) => choice('true', 'false'),
     comment: ($) => seq('%', /.+/, '\n'),
     _end_of_line: ($) => choice(';', '\n', '\r', ','),
+    _elipsis: (_) => '...'
   },
 });
