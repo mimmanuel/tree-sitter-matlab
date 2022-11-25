@@ -12,9 +12,9 @@ module.exports = grammar({
           $.expression,
           $.function_definition,
           $.function_call,
+          $.struct,
           $._statements
-        ), optional($._end_of_line))
-      ),
+        ), optional($._end_of_line))),
 
     _statements: ($) =>
       choice(
@@ -150,7 +150,8 @@ module.exports = grammar({
           choice(
             field('variable_name', $.identifier),
             field('vector_access', $.function_call),
-            field('vector', $.vector_definition)
+            field('vector', $.vector_definition),
+            field('struct', $.struct)
           ),
           '=',
           choice($.operation, $.factor, $.vector_definition, $.cell_definition),
@@ -196,6 +197,7 @@ module.exports = grammar({
             $.identifier,
             $.operation,
             $.function_call,
+            $.struct,
             $.range), 
         )),
 
@@ -212,15 +214,20 @@ module.exports = grammar({
       prec.left(
         3,
         seq(
-          optional(
-            repeat(
-              seq(
-                field('package_name', $.identifier), '.'))),
           field('function_name', $.identifier),
           $.argument_list,
           // optional($._end_of_line)
         )
       ),
+
+    struct: ($) =>
+      prec.left(
+        seq(
+          repeat1(seq($.identifier, '.')),
+          choice($.function_call, $.identifier)
+        )
+      ),
+
     vector_access: ($) => prec.left(seq($.identifier, '(', $.factor, ')')),
 
     string: ($) => seq($._single_quote, /([^']|(''))*/, $._single_quote),

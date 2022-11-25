@@ -116,3 +116,23 @@ a = {'b', 'c'};
 (source_file
   (expression (identifier) (cell_definition (factor (string)) (factor (string)))))
 
+==============
+Declare struct field
+==============
+
+a.b = 'c';
+
+---
+(source_file
+  (expression (struct (identifier) (identifier)) (factor (string))))
+
+==============
+Access struct field
+==============
+
+a = b.c;
+
+---
+(source_file
+  (expression (identifier) (factor (struct (identifier) (identifier)))))
+

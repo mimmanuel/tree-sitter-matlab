@@ -34,5 +34,6 @@ name.space.disp(32312);
 ---
 
 (source_file
-  (function_call (identifier) (identifier) (identifier) (argument_list (factor (number))))
+  (struct (identifier) (identifier) (function_call (identifier) (argument_list (factor (number)))))
 )
+

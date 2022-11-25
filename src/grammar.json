@@ -32,6 +32,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "struct"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_statements"
               }
             ]
@@ -755,6 +759,14 @@
                   "type": "SYMBOL",
                   "name": "vector_definition"
                 }
+              },
+              {
+                "type": "FIELD",
+                "name": "struct",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "struct"
+                }
               }
             ]
           },
@@ -998,6 +1010,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "struct"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "range"
               }
             ]
@@ -1067,34 +1083,6 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "REPEAT",
-                "content": {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "FIELD",
-                      "name": "package_name",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "identifier"
-                      }
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "."
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
             "type": "FIELD",
             "name": "function_name",
             "content": {
@@ -1105,6 +1093,44 @@
           {
             "type": "SYMBOL",
             "name": "argument_list"
+          }
+        ]
+      }
+    },
+    "struct": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "STRING",
+                  "value": "."
+                }
+              ]
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "function_call"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
           }
         ]
       }
