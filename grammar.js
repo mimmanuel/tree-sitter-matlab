@@ -4,6 +4,7 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
+
     source_file: ($) =>
       repeat(
         seq(choice(
@@ -140,9 +141,7 @@ module.exports = grammar({
       ),
 
     operation: ($) =>
-      prec.right(1, seq(
-        $.factor, $._operator, $.factor, 
-      )),
+      prec.right(1, seq($.factor, $._operator, $.factor)),
 
     expression: ($) =>
       prec(
@@ -174,7 +173,6 @@ module.exports = grammar({
         $.identifier,
         seq('[', repeat1(seq($.identifier, optional(','))), ']')
       ),
-
     block: ($) =>
       prec(
         3, repeat1(
