@@ -637,7 +637,41 @@
     "type": "switch_statement",
     "named": true,
     "fields": {
+<<<<<<< HEAD
       "endswitch": {
+=======
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bool",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "operation",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          }
+        ]
+      },
+      "end": {
+>>>>>>> 787b130 (generate)
         "multiple": false,
         "required": true,
         "types": [
@@ -683,16 +717,19 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "block",
           "named": true
+<<<<<<< HEAD
         },
         {
           "type": "catch_statement",
           "named": true
+=======
+>>>>>>> 787b130 (generate)
         }
       ]
     }
@@ -777,10 +814,13 @@
     "named": false
   },
   {
+<<<<<<< HEAD
     "type": "&&",
     "named": false
   },
   {
+=======
+>>>>>>> 787b130 (generate)
     "type": "(",
     "named": false
   },
@@ -925,6 +965,7 @@
     "named": true
   },
   {
+<<<<<<< HEAD
     "type": "otherwise",
     "named": false
   },
@@ -937,6 +978,8 @@
     "named": false
   },
   {
+=======
+>>>>>>> 787b130 (generate)
     "type": "true",
     "named": false
   },
