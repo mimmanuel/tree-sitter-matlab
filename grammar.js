@@ -212,12 +212,15 @@ module.exports = grammar({
       prec.left(
         3,
         seq(
+          optional(
+            repeat(
+              seq(
+                field('package_name', $.identifier), '.'))),
           field('function_name', $.identifier),
           $.argument_list,
           // optional($._end_of_line)
         )
       ),
-
     vector_access: ($) => prec.left(seq($.identifier, '(', $.factor, ')')),
 
     string: ($) => seq($._single_quote, /([^']|(''))*/, $._single_quote),

@@ -353,6 +353,16 @@
             "named": true
           }
         ]
+      },
+      "package_name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
@@ -798,6 +808,10 @@
   },
   {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
