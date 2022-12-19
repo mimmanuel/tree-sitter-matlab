@@ -243,7 +243,7 @@ module.exports = grammar({
 
     string: ($) => choice(
       seq($._double_quote, /([^"]|(""))*/, $._double_quote),
-      seq($._single_quote, /([^']|(''))*/, $._single_quote),
+      seq($._single_quote, /([^'\n]|(''))*/, $._single_quote),
     ),
 
     keyword: ($) => seq(choice('return', 'continue', 'break')),
