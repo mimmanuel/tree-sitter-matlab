@@ -201,7 +201,7 @@ module.exports = grammar({
       ))),
 
     _factor_elipsis: ($) =>
-    seq(optional($._elipsis), $.factor),
+    seq(optional($.linebreak), $.factor),
 
     range: ($) =>
       seq(
@@ -271,6 +271,6 @@ module.exports = grammar({
     _bool_keywords: ($) => choice('true', 'false'),
     comment: ($) => seq('%', /.+/, '\n'),
     _end_of_line: ($) => choice(';', '\n', '\r', ','),
-    _elipsis: (_) => '...'
+    linebreak: (_) => seq('...', '\n')
   },
 });

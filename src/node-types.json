@@ -10,6 +10,10 @@
         {
           "type": "factor",
           "named": true
+        },
+        {
+          "type": "linebreak",
+          "named": true
         }
       ]
     }
@@ -150,6 +154,10 @@
       "types": [
         {
           "type": "factor",
+          "named": true
+        },
+        {
+          "type": "linebreak",
           "named": true
         }
       ]
@@ -506,6 +514,11 @@
     "fields": {}
   },
   {
+    "type": "linebreak",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "operation",
     "named": true,
     "fields": {},
@@ -764,6 +777,10 @@
         {
           "type": "factor",
           "named": true
+        },
+        {
+          "type": "linebreak",
+          "named": true
         }
       ]
     }
@@ -862,6 +879,10 @@
   },
   {
     "type": ".*",
+    "named": false
+  },
+  {
+    "type": "...",
     "named": false
   },
   {

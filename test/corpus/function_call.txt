@@ -47,5 +47,6 @@ a( ...
 
 ---
 
-(source_file (function_call (identifier) (argument_list (factor (number)) (factor (number)))))
+(source_file (function_call (identifier) (argument_list 
+  (linebreak) (factor (number)) (linebreak) (factor (number)))))
 
