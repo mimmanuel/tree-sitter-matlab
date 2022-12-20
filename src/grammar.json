@@ -754,6 +754,14 @@
               },
               {
                 "type": "FIELD",
+                "name": "cell_access",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "cell_access"
+                }
+              },
+              {
+                "type": "FIELD",
                 "name": "vector",
                 "content": {
                   "type": "SYMBOL",
@@ -998,10 +1006,6 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "identifier"
-              },
-              {
-                "type": "SYMBOL",
                 "name": "operation"
               },
               {
@@ -1015,6 +1019,14 @@
               {
                 "type": "SYMBOL",
                 "name": "range"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "cell_access"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
               }
             ]
           }
@@ -1190,6 +1202,31 @@
           {
             "type": "STRING",
             "value": ")"
+          }
+        ]
+      }
+    },
+    "cell_access": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "STRING",
+            "value": "{"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_factor_elipsis"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
           }
         ]
       }

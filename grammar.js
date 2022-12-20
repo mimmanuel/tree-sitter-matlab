@@ -150,6 +150,7 @@ module.exports = grammar({
           choice(
             field('variable_name', $.identifier),
             field('vector_access', $.function_call),
+            field('cell_access', $.cell_access),
             field('vector', $.vector_definition),
             field('struct', $.struct)
           ),
@@ -193,11 +194,12 @@ module.exports = grammar({
         choice(
         $.number,
         $.string,
-        $.identifier,
         $.operation,
         $.function_call,
         $.struct,
-        $.range
+        $.range,
+        $.cell_access,
+        $.identifier,
       ))),
 
     _factor_elipsis: ($) =>
@@ -240,6 +242,7 @@ module.exports = grammar({
     choice($.identifier, $.number, $.function_call),
 
     vector_access: ($) => prec.left(seq($.identifier, '(', $._factor_elipsis, ')')),
+    cell_access: ($) => prec.left(seq($.identifier, '{', $._factor_elipsis, '}')),
 
     string: ($) => choice(
       seq($._double_quote, /([^"]|(""))*/, $._double_quote),

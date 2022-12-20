@@ -145,6 +145,29 @@
     }
   },
   {
+    "type": "cell_access",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "linebreak",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cell_definition",
     "named": true,
     "fields": {},
@@ -229,6 +252,16 @@
     "type": "expression",
     "named": true,
     "fields": {
+      "cell_access": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "cell_access",
+            "named": true
+          }
+        ]
+      },
       "struct": {
         "multiple": false,
         "required": false,
@@ -301,6 +334,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "cell_access",
+          "named": true
+        },
         {
           "type": "function_call",
           "named": true
